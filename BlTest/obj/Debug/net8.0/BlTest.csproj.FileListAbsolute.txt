@@ -1,0 +1,5 @@
+E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.csproj.AssemblyReference.cache
+E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.GeneratedMSBuildEditorConfig.editorconfig
+E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.AssemblyInfoInputs.cache
+E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.AssemblyInfo.cs
+E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.csproj.CoreCompileInputs.cache

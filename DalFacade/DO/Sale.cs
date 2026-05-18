@@ -18,6 +18,7 @@ namespace DO
         DateTime StartDate,
         DateTime EndDate)
     {
-        public Sale():this(0,0,1,0,false,DateTime.Now,DateTime.Now) { }
+        static private int id = 0;
+        public Sale():this(id++,0,1,0,false,DateTime.Now,DateTime.Now) { }
     }
 }

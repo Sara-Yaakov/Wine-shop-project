@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <Id>0</Id>
+    <Name>Dana Levi</Name>
+    <Address>12 Herzl St, Tel Aviv</Address>
+    <PhoneNumber>050-1234567</PhoneNumber>
+    <IsClubMember>true</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>1</Id>
+    <Name>Amit Cohen</Name>
+    <Address>8 Ben Gurion Ave, Ramat Gan</Address>
+    <PhoneNumber>052-2345678</PhoneNumber>
+    <IsClubMember>false</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>2</Id>
+    <Name>Noa Friedman</Name>
+    <Address>25 Dizengoff St, Tel Aviv</Address>
+    <PhoneNumber>054-3456789</PhoneNumber>
+    <IsClubMember>true</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>3</Id>
+    <Name>Eyal Shapiro</Name>
+    <Address>3 HaNassi St, Haifa</Address>
+    <PhoneNumber>053-4567890</PhoneNumber>
+    <IsClubMember>false</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>4</Id>
+    <Name>Yael Katz</Name>
+    <Address>17 Weizmann St, Kfar Saba</Address>
+    <PhoneNumber>050-5678901</PhoneNumber>
+    <IsClubMember>true</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>5</Id>
+    <Name>Omer Rosen</Name>
+    <Address>9 Rothschild Blvd, Tel Aviv</Address>
+    <PhoneNumber>052-6789012</PhoneNumber>
+    <IsClubMember>false</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>6</Id>
+    <Name>Shira Gold</Name>
+    <Address>4 Arlozorov St, Netanya</Address>
+    <PhoneNumber>054-7890123</PhoneNumber>
+    <IsClubMember>true</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>7</Id>
+    <Name>Lior Ben David</Name>
+    <Address>22 Jabotinsky St, Petah Tikva</Address>
+    <PhoneNumber>053-8901234</PhoneNumber>
+    <IsClubMember>false</IsClubMember>
+  </Customer>
+  <Customer>
+    <Id>8</Id>
+    <Name>Maya Azulay</Name>
+    <Address>6 Hillel St, Jerusalem</Address>
+    <PhoneNumber>050-9012345</PhoneNumber>
+    <IsClubMember>true</IsClubMember>
+  </Customer>
+</ArrayOfCustomer>

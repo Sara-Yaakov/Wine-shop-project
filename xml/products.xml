@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct>
+  <Product>
+    <Id>1000</Id>
+    <Name>Goldstar Lager</Name>
+    <Category>beer</Category>
+    <Color>dark</Color>
+    <ProductionDate>2024-02-01T00:00:00</ProductionDate>
+    <AgingPeriod>5</AgingPeriod>
+    <Winery>Goldstar Brewery</Winery>
+    <Description>Classic Israeli dark lager beer</Description>
+    <Season>summer</Season>
+    <Amount>3</Amount>
+    <Price>550</Price>
+  </Product>
+  <Product>
+    <Id>1001</Id>
+    <Name>Maccabee Light</Name>
+    <Category>beer</Category>
+    <Color>light</Color>
+    <ProductionDate>2024-01-15T00:00:00</ProductionDate>
+    <AgingPeriod>4</AgingPeriod>
+    <Winery>Tempo Brewery</Winery>
+    <Description>Light and refreshing lager beer</Description>
+    <Season>summer</Season>
+    <Amount>3</Amount>
+    <Price>520</Price>
+  </Product>
+  <Product>
+    <Id>1002</Id>
+    <Name>Baileys Irish Cream</Name>
+    <Category>liqueur</Category>
+    <Color>cream</Color>
+    <ProductionDate>2023-11-10T00:00:00</ProductionDate>
+    <AgingPeriod>17</AgingPeriod>
+    <Winery>Baileys</Winery>
+    <Description>Cream liqueur with chocolate and vanilla notes</Description>
+    <Season>winter</Season>
+    <Amount>4</Amount>
+    <Price>980</Price>
+  </Product>
+  <Product>
+    <Id>1003</Id>
+    <Name>Cointreau Orange Liqueur</Name>
+    <Category>liqueur</Category>
+    <Color>orange</Color>
+    <ProductionDate>2023-09-05T00:00:00</ProductionDate>
+    <AgingPeriod>40</AgingPeriod>
+    <Winery>Cointreau</Winery>
+    <Description>Premium orange-flavored liqueur</Description>
+    <Season>fall</Season>
+    <Amount>5</Amount>
+    <Price>1150</Price>
+  </Product>
+  <Product>
+    <Id>1004</Id>
+    <Name>Moet &amp; Chandon Brut Imperial</Name>
+    <Category>champagne</Category>
+    <Color>sparkling</Color>
+    <ProductionDate>2023-12-01T00:00:00</ProductionDate>
+    <AgingPeriod>12</AgingPeriod>
+    <Winery>Moet &amp; Chandon</Winery>
+    <Description>Dry and elegant champagne with fine bubbles</Description>
+    <Season>spring</Season>
+    <Amount>5</Amount>
+    <Price>2100</Price>
+  </Product>
+  <Product>
+    <Id>1005</Id>
+    <Name>Veuve Clicquot Brut</Name>
+    <Category>champagne</Category>
+    <Color>sparkling</Color>
+    <ProductionDate>2023-10-20T00:00:00</ProductionDate>
+    <AgingPeriod>12</AgingPeriod>
+    <Winery>Veuve Clicquot</Winery>
+    <Description>Rich and balanced champagne</Description>
+    <Season>spring</Season>
+    <Amount>5</Amount>
+    <Price>2200</Price>
+  </Product>
+  <Product>
+    <Id>1006</Id>
+    <Name>Chenin Blanc 2024</Name>
+    <Category>wine</Category>
+    <Color>white</Color>
+    <ProductionDate>2024-03-01T00:00:00</ProductionDate>
+    <AgingPeriod>8</AgingPeriod>
+    <Winery>Barkan Winery</Winery>
+    <Description>Fresh and aromatic Chenin Blanc with citrus and green apple notes</Description>
+    <Season>spring</Season>
+    <Amount>4</Amount>
+    <Price>850</Price>
+  </Product>
+  <Product>
+    <Id>1007</Id>
+    <Name>Cabernet Sauvignon Reserve 2021</Name>
+    <Category>wine</Category>
+    <Color>red</Color>
+    <ProductionDate>2021-10-15T00:00:00</ProductionDate>
+    <AgingPeriod>14</AgingPeriod>
+    <Winery>Carmel Winery</Winery>
+    <Description>Full-bodied Cabernet Sauvignon aged in oak barrels</Description>
+    <Season>winter</Season>
+    <Amount>5</Amount>
+    <Price>1200</Price>
+  </Product>
+  <Product>
+    <Id>1008</Id>
+    <Name>Merlot Galilee 2022</Name>
+    <Category>wine</Category>
+    <Color>red</Color>
+    <ProductionDate>2022-09-20T00:00:00</ProductionDate>
+    <AgingPeriod>13</AgingPeriod>
+    <Winery>Dalton Winery</Winery>
+    <Description>Smooth Merlot with notes of plum and cherry</Description>
+    <Season>winter</Season>
+    <Amount>4</Amount>
+    <Price>980</Price>
+  </Product>
+  <Product>
+    <Id>1009</Id>
+    <Name>Sauvignon Blanc 2023</Name>
+    <Category>wine</Category>
+    <Color>white</Color>
+    <ProductionDate>2023-04-10T00:00:00</ProductionDate>
+    <AgingPeriod>12</AgingPeriod>
+    <Winery>Tabor Winery</Winery>
+    <Description>Crisp Sauvignon Blanc with tropical fruit aromas</Description>
+    <Season>spring</Season>
+    <Amount>4</Amount>
+    <Price>890</Price>
+  </Product>
+  <Product>
+    <Id>1010</Id>
+    <Name>Syrah Upper Galilee 2021</Name>
+    <Category>wine</Category>
+    <Color>red</Color>
+    <ProductionDate>2021-11-05T00:00:00</ProductionDate>
+    <AgingPeriod>14</AgingPeriod>
+    <Winery>Recanati Winery</Winery>
+    <Description>Spicy and rich Syrah with black pepper and dark fruit</Description>
+    <Season>winter</Season>
+    <Amount>5</Amount>
+    <Price>1350</Price>
+  </Product>
+  <Product>
+    <Id>1011</Id>
+    <Name>Rose Mediterranean 2023</Name>
+    <Category>wine</Category>
+    <Color>rose</Color>
+    <ProductionDate>2023-05-18T00:00:00</ProductionDate>
+    <AgingPeriod>11</AgingPeriod>
+    <Winery>Yarden Winery</Winery>
+    <Description>Light and refreshing rose perfect for warm days</Description>
+    <Season>summer</Season>
+    <Amount>3</Amount>
+    <Price>750</Price>
+  </Product>
+  <Product>
+    <Id>1012</Id>
+    <Name>Gewurztraminer 2022</Name>
+    <Category>wine</Category>
+    <Color>white</Color>
+    <ProductionDate>2022-06-30T00:00:00</ProductionDate>
+    <AgingPeriod>12</AgingPeriod>
+    <Winery>Golan Heights Winery</Winery>
+    <Description>Aromatic wine with floral and lychee notes</Description>
+    <Season>summer</Season>
+    <Amount>4</Amount>
+    <Price>920</Price>
+  </Product>
+</ArrayOfProduct>

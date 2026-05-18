@@ -1,58 +1,55 @@
 ﻿
 
-using DO;
 using DalApi;
+using DO;
+using System.Linq;
 using static Dal.DalExceptions;
 
 namespace Dal;
 
-    public class SaleImplementation : ISale
+internal class SaleImplementation : ISale
 {
     public int Create(Sale sale)
     {
-        int myId = DataSource.Config.CurrentRunningSalesId;
-        Sale sale2 = sale with { Id = myId };
-        DataSource.sales.Add(sale2);
-        return myId;
-        throw new NotImplementedException("Sale creating function failed");
+        int curId = DataSource.Config.CurrentRunningSalesId;
+        Sale newSale = sale with { Id = curId };
+        DataSource.sales.Add(newSale);
+        return curId;
     }
-
     public void Delete(int id)
     {
-        if (DataSource.sales.Exists((s) => s.Id == id))
-        {
-
-            DataSource.sales.Remove(DataSource.sales.Find((s) => s.Id == id));
-        }
-        throw new DalIdAlreadyExistsException("Sale deleting ended with an error, the id is not exists");
+        var saleToDelete = DataSource.sales.SingleOrDefault(s => s.Id == id);
+        if (saleToDelete == null)
+            throw new DalIdNotFoundException("Sale deleting/updating ended with an error, the id is not exists");
+        DataSource.sales.Remove(saleToDelete);
     }
-
     public Sale? Read(int id)
     {
-        if (DataSource.sales.Exists((s) => s.Id == id))
-        {
-
-            return DataSource.sales.Find((s) => s.Id == id);
-        }
-        throw new DalIdNotFaundException("Sale was not in the list");
+        var saleToRead = DataSource.sales.SingleOrDefault(s => s.Id == id);
+        if (saleToRead == null)
+            throw new DalIdNotFoundException("Sale was not in the list");
+        return saleToRead;
     }
-
-    public List<Sale?> ReadAll()
+    public Sale? Read(Func<Sale, bool> filter)
     {
-        return DataSource.sales;
-        throw new NotImplementedException("Read all sales function ended with an unkown error");
-
+        var saleToRead = DataSource.sales.FirstOrDefault(filter);
+        if (saleToRead == null)
+            throw new DalIdNotFoundException("No sale found matching the filter");
+        return saleToRead;
     }
 
+    public List<Sale?> ReadAll(Func<Sale,bool>? filter=null)
+    {
+        return filter == null
+             ? DataSource.sales.ToList()
+             : DataSource.sales.Where(filter).ToList();
+    }
     public void Update(Sale sale)
     {
-        if (DataSource.sales.Exists((p) => p.Id == sale.Id))
-        {
-
-            Delete(sale.Id);
-            DataSource.sales.Add(sale);
-        }
-        throw new DalIdNotFaundException("Sale was not found");
+        var existingSaleIndex = DataSource.sales.FindIndex(s => s.Id == sale.Id);
+        if (existingSaleIndex == -1)
+            throw new DalIdNotFoundException("Sale is not in the list");
+        DataSource.sales[existingSaleIndex] = sale;
     }
 }
 

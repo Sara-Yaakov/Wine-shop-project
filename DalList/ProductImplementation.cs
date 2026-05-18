@@ -1,59 +1,61 @@
 ﻿
-using DO;
 using DalApi;
+using DO;
+using System.Linq;
 using static Dal.DalExceptions;
 
 namespace Dal;
 
-    public class ProductImplementation : IProduct
+internal class ProductImplementation : IProduct
 {
     public int Create(Product product)
     {
-        int myId = DataSource.Config.CurrentRunningProductsId;
-        Product product2 = product with { Id = myId };
-        DataSource.products.Add(product2);
-        return myId;
-        throw new NotImplementedException("Product creating function failed");
+        int curId = DataSource.Config.CurrentRunningProductsId;
+        Product newProduct = product with { Id = curId };
+        DataSource.products.Add(newProduct);
+        return curId;
     }
 
     public void Delete(int id)
     {
-        if (DataSource.products.Exists((p) => p.Id == id))
-        {
-
-            DataSource.products.Remove(DataSource.products.Find((p) => p.Id == id));
-        }
-        throw new DalIdAlreadyExistsException("Product deleting ended with an error, the id is not exists");
+        var productToDelete = DataSource.products.SingleOrDefault(p => p.Id == id);
+        if (productToDelete==null)
+            throw new DalIdNotFoundException("Product deleting/updating ended with an error, the id is not exists");
+        DataSource.products.Remove(productToDelete);
+        
     }
 
     public Product? Read(int id)
     {
-        if (DataSource.products.Exists((p) => p.Id == id))
-        {
-
-            return DataSource.products.Find((p) => p.Id == id);
-        }
-        throw new DalIdNotFaundException("Product was not in the list");
+        var productToRead = DataSource.products.SingleOrDefault(p => p.Id == id);
+        if(productToRead==null)
+            throw new DalIdNotFoundException("Product is not in the list");
+        return productToRead;
     }
 
-    public List<Product?> ReadAll()
+    public Product? Read(Func<Product, bool> filter)
     {
-        return DataSource.products;
-        throw new NotImplementedException("Read all products function ended with an unkown error");
+        var product = DataSource.products.FirstOrDefault(filter);
+        if (product == null)
+            throw new DalIdNotFoundException("No product found matching the filter");
+        return product;
+    }
+
+    public List<Product?> ReadAll(Func<Product,bool>? filter=null)
+    {
+        return filter == null
+             ? DataSource.products.ToList()
+             : DataSource.products.Where(filter).ToList();
     }
 
     public void Update(Product product)
     {
-        if (DataSource.products.Exists((p) => p.Id == product.Id))
-        {
-
-            Delete(product.Id);
-            DataSource.products.Add(product);
-        }
-        throw new DalIdNotFaundException("Product was not found");
+        var existingProductIndex = DataSource.products.FindIndex(p => p.Id == product.Id);
+        if (existingProductIndex == -1)
+            throw new DalIdNotFoundException("Product is not in the list");
+        DataSource.products[existingProductIndex] = product;
     }
 
-    ///
 
 }
 

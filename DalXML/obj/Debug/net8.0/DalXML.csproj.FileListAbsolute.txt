@@ -1,0 +1,30 @@
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.csproj.AssemblyReference.cache
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.AssemblyInfoInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.AssemblyInfo.cs
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.csproj.CoreCompileInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalXML.deps.json
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalXML.pdb
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalFacade.pdb
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.csproj.Up2Date
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\refint\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.pdb
+C:\Users\ברכי\Documents\programming\2\C#\אחרי שלב 5\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\ref\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalXML.deps.json
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalXML.pdb
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\bin\Debug\net8.0\DalFacade.pdb
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.csproj.AssemblyReference.cache
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.AssemblyInfoInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.AssemblyInfo.cs
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.csproj.CoreCompileInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.csproj.Up2Date
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\refint\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\DalXML.pdb
+C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalXML\obj\Debug\net8.0\ref\DalXML.dll
