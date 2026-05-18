@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace />
+		<OutputPath>$(SolutionDir)\bin\</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<UseCommonOutputDirectory>true</UseCommonOutputDirectory>
+		<BaseOutputPath>M:\c#.net\DotNet2026_5119_9622_0193\bin</BaseOutputPath>
+	</PropertyGroup>
+
+</Project>
