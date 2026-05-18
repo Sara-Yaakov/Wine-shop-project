@@ -140,8 +140,6 @@ internal static class Tools
             Season = (DO.Season)product.Season,
             Amount = product.Amount,
             Price = product.Price
-
-
         };
     }
 

@@ -22,7 +22,7 @@ namespace DO
         int Amount, 
         double Price) 
     {
-        public Product(int V) : this(0, "", Category.wine, "", DateTime.Now,0, "", "", Season.summer, 0, 0)
+        public Product() : this(0, "", Category.wine, "", DateTime.Now,0, "", "", Season.summer, 0, 0)
         {
         }
         

@@ -5,8 +5,9 @@ public interface ICustomer
     public int AddCustomer(Customer customer);
     public void UpdateCustomer(Customer customer);
     public void DeleteCustomer(int id);
-    public List<Customer> GetAllCustomers();
     public Customer GetCustomerById(int id);
-    public Product GetCustomerByParameter(Func<Customer, bool> filter);
+    public Customer GetCustomerByParameter(Func<Customer, bool> filter);
+    public List<Customer> GetAllCustomersByParameter(Func<DO.Customer, bool> filter = null);
+    public List<Customer> GetAllCustomers();
     public bool IsCustomerExists(int id);
 }
