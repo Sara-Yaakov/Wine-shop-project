@@ -65,23 +65,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brachaub\\.nuget\\packages\\": {},
+    "C:\\Users\\Sari\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalTest\\DalTest.csproj",
+      "projectUniqueName": "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalTest\\DalTest.csproj",
       "projectName": "DalTest",
-      "projectPath": "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalTest\\DalTest.csproj",
-      "packagesPath": "C:\\Users\\brachaub\\.nuget\\packages\\",
-      "outputPath": "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalTest\\obj\\",
+      "projectPath": "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalTest\\DalTest.csproj",
+      "packagesPath": "C:\\Users\\Sari\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\brachaub\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sari\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -97,14 +97,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalFacade\\DalFacade.csproj": {
-              "projectPath": "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalFacade\\DalFacade.csproj"
+            "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalFacade\\DalFacade.csproj": {
+              "projectPath": "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalFacade\\DalFacade.csproj"
             },
-            "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalList\\DalList.csproj": {
-              "projectPath": "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalList\\DalList.csproj"
+            "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalList\\DalList.csproj": {
+              "projectPath": "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalList\\DalList.csproj"
             },
-            "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalXML\\DalXML.csproj": {
-              "projectPath": "M:\\C#\\DotNet2026_5119_9622_0193\\Wine-shop-project\\DalXML\\DalXML.csproj"
+            "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalXML\\DalXML.csproj": {
+              "projectPath": "C:\\Users\\Sari\\Desktop\\C#.net\\Wine-shop-project\\DalXML\\DalXML.csproj"
             }
           }
         }
@@ -118,7 +118,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -139,7 +140,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -3,3 +3,33 @@ E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\Bl
 E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.AssemblyInfoInputs.cache
 E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.AssemblyInfo.cs
 E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\BlTest\obj\Debug\net8.0\BlTest.csproj.CoreCompileInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BlTest.exe
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BlTest.deps.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BlTest.runtimeconfig.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BlTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BlTest.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BL.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalFacade.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalList.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\BL.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalFacade.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalList.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.csproj.AssemblyReference.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.AssemblyInfoInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.AssemblyInfo.cs
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.csproj.CoreCompileInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.sourcelink.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.csproj.Up2Date
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\refint\BlTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\BlTest.genruntimeconfig.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\obj\Debug\net8.0\ref\BlTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalTest.deps.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalTest.runtimeconfig.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalTest.exe
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalXML.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalTest.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\BlTest\bin\Debug\net8.0\DalXML.pdb

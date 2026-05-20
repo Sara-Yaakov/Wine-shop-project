@@ -1,11 +1,10 @@
-﻿//using static Dal.DalExceptions;
-using BlApi;
-using BO;
+﻿using BlApi;
+using static BO.Tools;
 namespace BlImplementation;
 
 
 
-internal class CustomerImplementation : BlApi.ICustomer // בעיה עם הפילטרים שמחכים לקבל BO.CUSTOMER ולהעביר הלאה פילטר של DO.CUSTOMER
+internal class CustomerImplementation : ICustomer // בעיה עם הפילטרים שמחכים לקבל BO.CUSTOMER ולהעביר הלאה פילטר של DO.CUSTOMER
 {
     private DalApi.IDal _dal = DalApi.Factory.Get;
 
@@ -48,16 +47,16 @@ internal class CustomerImplementation : BlApi.ICustomer // בעיה עם הפי�
         return list.Select(c => c.convertDOCustomerToBOCustomer()).ToList();
     }
 
-    public List<Customer> GetAllCustomersByParameter(Func<DO.Customer, bool> filter = null)
+    public List<BO.Customer> GetAllCustomersByParameter(Func<BO.Customer, bool> filter = null)
     {
 
         // FILTER CAST TO Func<BO.Customer, bool>
+        //כרגע לא משתמש בפונקצית סינון של dal
         var list = _dal.Customer.ReadAll().Select(c => c.convertDOCustomerToBOCustomer());
         if(filter != null)
             list = list.Where(filter);
                 return list.ToList();
     }
 
-   
 }
 

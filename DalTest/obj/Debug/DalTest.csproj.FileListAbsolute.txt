@@ -96,3 +96,20 @@ C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי ש
 C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalTest\obj\Debug\DalTest.pdb
 C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalTest\obj\Debug\DalTest.genruntimeconfig.cache
 C:\Users\ברכי\Documents\programming\2\C#\‏‏כולל שלב 9 אחרי שלב 5  שלב שבע בהתהוות- עותק\DotNet2026_5119_9622_0193\DalTest\obj\Debug\ref\DalTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalTest.exe
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalTest.deps.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalTest.runtimeconfig.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalTest.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.csproj.AssemblyReference.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.AssemblyInfoInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.AssemblyInfo.cs
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.csproj.CoreCompileInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.sourcelink.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.csproj.Up2Date
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\refint\DalTest.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.genruntimeconfig.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\ref\DalTest.dll

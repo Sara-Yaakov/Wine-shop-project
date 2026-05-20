@@ -1,44 +1,31 @@
 ﻿using BlApi;
-using BO;
+using static BO.Tools;
+using static BO.BlException;
 using DalApi;
-using DO;
 using System.Runtime.Intrinsics.Arm;
 
 namespace BlImplementation;
 
 internal class OrderImplementation : IOrder
 {
-    public void AddProductToOrder(Order order, int productId, int amount)
+    private DalApi.IDal _dal = DalApi.Factory.Get;
+    public void AddProductToOrder(BO.Order order, int productId, int amount)
     {
         bool isProductInOrder = false;
-        DO.Product dalProduct = Factory.Get.Product.Read(productId);
-        BO.Product product = new BO.Product
-        {
-            Id = dalProduct.Id,
-            Name = dalProduct.Name,
-            Category = dalProduct.Category,
-            Color = dalProduct.Color,
-            ProductionDate = dalProduct.ProductionDate,
-            AgingPeriod = dalProduct.AgingPeriod,
-            Winery = dalProduct.Winery,
-            Description = dalProduct.Description,
-            Season = dalProduct.Season,
-            Amount = dalProduct.Amount,
-            Price = dalProduct.Price
-        };
+        BO.Product product=_dal.Product.Read(productId).convertDOProductToBOProduct();
 
         if (amount > product.Amount)
         {
-            throw new Exception("there are only " + product.Amount + " in the stock");
+            throw new BlNegetiveAmountInOrder("there are only " + product.Amount + " in the stock");
         }
 
 
-        foreach (ProductInOrder p in order.Products)
+        foreach (BO.ProductInOrder p in order.Products)
         {
             if (p.ProductId == productId)
             {
                 if (p.Amount + amount < 0)
-                    throw new Exception("you are trying to download non-existent products");
+                    throw new BlNoProductInStock("you are trying to download non-existent products");
                 p.Amount += amount;
                 SearchSaleForProduct(p, order.IsClubMember);
                 CalcTotalPriceForProduct(p);
@@ -48,8 +35,8 @@ internal class OrderImplementation : IOrder
         if (!isProductInOrder)
         {
             if (amount < 0)
-                throw new Exception("you are trying to download non-existent products");
-            ProductInOrder pio = new ProductInOrder
+                throw new BlNoProductInStock("you are trying to download non-existent products");
+            BO.ProductInOrder pio = new BO.ProductInOrder
             {
                 ProductId = product.Id,
                 Amount = product.Amount,
@@ -64,18 +51,18 @@ internal class OrderImplementation : IOrder
 
     }
 
-    public void CalcTotalPrice(Order order)
+    public void CalcTotalPrice(BO.Order order)
     {
         double totalPrice = 0;
-        foreach (ProductInOrder pio in order.Products)
+        foreach (BO.ProductInOrder pio in order.Products)
         {
             totalPrice += pio.FinalPrice;
         }
     }
 
-    public void CalcTotalPriceForProduct(ProductInOrder productInOrder)
+    public void CalcTotalPriceForProduct(BO.ProductInOrder productInOrder)
     {
-        List<SaleInProduct> saleInProducts = new List<SaleInProduct>();
+        List<BO.SaleInProduct> saleInProducts = new List<BO.SaleInProduct>();
         double totalPrice = 0;
         int restAmount = productInOrder.Amount;
         productInOrder.SalesOfProduct.ForEach(sop =>
@@ -92,30 +79,32 @@ internal class OrderImplementation : IOrder
         productInOrder.SalesOfProduct = saleInProducts;
     }
 
-    public void SearchSaleForProduct(ProductInOrder productInOrder, bool isCustomerClubMember)
+    public void SearchSaleForProduct(BO.ProductInOrder productInOrder, bool isCustomerClubMember)
     {
-        List<DO.Sale> doSales;
+        List<BO.Sale> sales;
         if (isCustomerClubMember == true)
         {
-            doSales = Factory.Get.Sale.ReadAll(
-                true,
+            sales = _dal.Sale.ReadAll(
                 s => s.StartDate < DateTime.Now &&
                     s.EndDate > DateTime.Now &&
-                    s.RequiredAmount <= productInOrder.Amount);
+                    s.RequiredAmount <= productInOrder.Amount)
+                    .Select(s=>s.convertDOSaleToBOSale())
+                    .ToList();
         }
         else
         {
-            doSales = Factory.Get.Sale.ReadAll(
-                true,
+            sales = _dal.Sale.ReadAll(
                 s => s.StartDate < DateTime.Now &&
                     s.EndDate > DateTime.Now &&
                     s.RequiredAmount <= productInOrder.Amount &&
-                    s.IsForClubMembersOnly == false);
+                    s.IsForClubMembersOnly == false)
+                    .Select(s => s.convertDOSaleToBOSale())
+                    .ToList(); 
         }
 
-        productInOrder.SalesOfProduct = doSales
+        productInOrder.SalesOfProduct = sales
             .OrderBy(s => s.PriceAfterDiscount)
-            .Select(s => new SaleInProduct
+            .Select(s => new BO.SaleInProduct
             {
                 SaleId = s.Id,
                 ProductId = s.ProductId,
@@ -127,44 +116,15 @@ internal class OrderImplementation : IOrder
             .ToList();
     }
 
-    public void DoOrder(Order order)
+    public void DoOrder(BO.Order order)
     {
-        foreach ( ProductInOrder p in order.Products)
+        foreach ( BO.ProductInOrder p in order.Products)
         {
-            DO.Product dalProduct = Factory.Get.Product.Read(p.ProductId);
-            DO.Product updated = dalProduct with { Amount = dalProduct.Amount - p.Amount };
-            Factory.Get.Product.Update(updated);
+            BO.Product prod = _dal.Product.Read(p.ProductId).convertDOProductToBOProduct();
+            prod.Amount -= p.Amount;
+            _dal.Product.Update(prod.convertBOProductToDOProduct());
         }
 
     }
 
-    public int Create(Order item)
-    {
-        throw new NotImplementedException("no orders saved");
-    }
-
-    public void Delete(int id)
-    {
-        throw new NotImplementedException("no orders saved");
-    }
-
-    public Order? Read(int id)
-    {
-        throw new NotImplementedException("no orders saved");
-    }
-
-    public Order? Read(Func<Order, bool> filter)
-    {
-        throw new NotImplementedException("no orders saved");
-    }
-
-    public List<Order> ReadAll(Func<Order, bool>? filter = null)
-    {
-        throw new NotImplementedException("no orders saved");
-    }
-
-    public void Update(Order item)
-    {
-        throw new NotImplementedException("no orders saved");
-    }
 }

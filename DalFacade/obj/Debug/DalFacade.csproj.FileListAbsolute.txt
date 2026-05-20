@@ -88,3 +88,15 @@ E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\Da
 E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\DalFacade\obj\Debug\refint\DalFacade.dll
 E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\DalFacade\obj\Debug\DalFacade.pdb
 E:\c#.net\פרויקט מעודכן יח איייר\DotNet2026_5119_9622_0193\DalFacade\obj\Debug\ref\DalFacade.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalFacade.deps.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalFacade.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\bin\DalFacade.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.sourcelink.json
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\refint\DalFacade.dll
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.pdb
+C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\ref\DalFacade.dll

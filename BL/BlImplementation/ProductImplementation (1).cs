@@ -1,87 +1,59 @@
 ﻿
 using BlApi;
+using static BO.Tools;
 using System.Linq;
-using static Dal.DalExceptions;
-
 namespace BlImplementation;
 
 internal class ProductImplementation : IProduct
 {
-    //public int Create(Product product)
-    //{
-    //    int curId = DataSource.Config.CurrentRunningProductsId;
-    //    Product newProduct = product with { Id = curId };
-    //    DataSource.products.Add(newProduct);
-    //    return curId;
-    //}
+    private DalApi.IDal _dal = DalApi.Factory.Get;
 
-    //public void Delete(int id)
-    //{
-    //    var productToDelete = DataSource.products.SingleOrDefault(p => p.Id == id);
-    //    if (productToDelete==null)
-    //        throw new DalIdNotFoundException("Product deleting/updating ended with an error, the id is not exists");
-    //    DataSource.products.Remove(productToDelete);
-
-    //}
-
-    //public Product? Read(int id)
-    //{
-    //    var productToRead = DataSource.products.SingleOrDefault(p => p.Id == id);
-    //    if(productToRead==null)
-    //        throw new DalIdNotFoundException("Product is not in the list");
-    //    return productToRead;
-    //}
-
-    //public Product? Read(Func<Product, bool> filter)
-    //{
-    //    var product = DataSource.products.FirstOrDefault(filter);
-    //    if (product == null)
-    //        throw new DalIdNotFoundException("No product found matching the filter");
-    //    return product;
-    //}
-
-    //public List<Product?> ReadAll(Func<Product,bool>? filter=null)
-    //{
-    //    return filter == null
-    //         ? DataSource.products.ToList()
-    //         : DataSource.products.Where(filter).ToList();
-    //}
-
-    //public void Update(Product product)
-    //{
-    //    var existingProductIndex = DataSource.products.FindIndex(p => p.Id == product.Id);
-    //    if (existingProductIndex == -1)
-    //        throw new DalIdNotFoundException("Product is not in the list");
-    //    DataSource.products[existingProductIndex] = product;
-    //}
-    public int AddProduct(Product product)
+    public int AddProduct(BO.Product product)
     {
-        throw new NotImplementedException();
+        return _dal.Product.Create(product.convertBOProductToDOProduct());
     }
 
-    public void DeleteProduct(Product product)
+    public void DeleteProduct(int productId)
     {
-        throw new NotImplementedException();
+        _dal.Product.Delete(productId);
     }
 
-    public List<Product> GetAllProducts()
+    public List<BO.Product> GetAllProducts()
     {
-        throw new NotImplementedException();
+        return _dal.Product.ReadAll()
+            .Select(p => p.convertDOProductToBOProduct())
+            .ToList();
     }
 
-    public Product GetProductById(int id)
+    public List<BO.Product> GetAllProductsByParameter(Func<BO.Product, bool> filter = null)
     {
-        throw new NotImplementedException();
+
+        // FILTER CAST TO Func<BO.Customer, bool>
+        //כרגע לא משתמש בפונקצית סינון של dal
+        var list = _dal.Product.ReadAll().Select(p => p.convertDOProductToBOProduct());
+        if (filter != null)
+            list = list.Where(filter);
+        return list.ToList();
     }
 
-    public Product GetProductByParameter(Func<Product, bool> filter)
+    public BO.Product GetProductById(int id)
     {
-        throw new NotImplementedException();
+        return _dal.Product.Read(id).convertDOProductToBOProduct();
     }
 
-    public void UpdateProduct(Product product)
+    public BO.Product GetProductByParameter(Func<BO.Product, bool> filter)
     {
-        throw new NotImplementedException();
+
+        // FILTER CAST TO Func<BO.PRODUCT, bool>
+        //כרגע לא משתמש בפונקצית סינון של dal
+        return _dal.Product.ReadAll()
+                .Select(p => p.convertDOProductToBOProduct()).
+                FirstOrDefault(filter);
+    }
+
+    public void UpdateProduct(BO.Product product)
+    {
+        _dal.Product.Update(product.convertBOProductToDOProduct());
     }
 }
 

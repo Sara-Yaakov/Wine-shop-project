@@ -1,13 +1,12 @@
 ﻿namespace BlApi;
-using BO;
 public interface ICustomer
 {
-    public int AddCustomer(Customer customer);
-    public void UpdateCustomer(Customer customer);
+    public int AddCustomer(BO.Customer customer);
+    public void UpdateCustomer(BO.Customer customer);
     public void DeleteCustomer(int id);
-    public Customer GetCustomerById(int id);
-    public Customer GetCustomerByParameter(Func<Customer, bool> filter);
-    public List<Customer> GetAllCustomersByParameter(Func<DO.Customer, bool> filter = null);
-    public List<Customer> GetAllCustomers();
+    public BO.Customer GetCustomerById(int id);
+    public BO.Customer GetCustomerByParameter(Func<BO.Customer, bool> filter);
+    public List<BO.Customer> GetAllCustomersByParameter(Func<BO.Customer, bool> filter = null);
+    public List<BO.Customer> GetAllCustomers();
     public bool IsCustomerExists(int id);
 }

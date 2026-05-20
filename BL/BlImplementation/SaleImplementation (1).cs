@@ -1,6 +1,6 @@
 ﻿using BlApi;
-using BO;
 using Dal;
+using static BO.Tools;
 using System.Linq;
 using static Dal.DalExceptions;
 
@@ -8,79 +8,50 @@ namespace BlImplementation;
 
 internal class SaleImplementation : ISale
 {
-    //public int Create(Sale sale)
-    //{
-    //    int curId = DataSource.Config.CurrentRunningSalesId;
-    //    Sale newSale = sale with { Id = curId };
-    //    DataSource.sales.Add(newSale);
-    //    return curId;
-    //}
-    //public void Delete(int id)
-    //{
-    //    var saleToDelete = DataSource.sales.SingleOrDefault(s => s.Id == id);
-    //    if (saleToDelete == null)
-    //        throw new DalIdNotFoundException("Sale deleting/updating ended with an error, the id is not exists");
-    //    DataSource.sales.Remove(saleToDelete);
-    //}
-    //public Sale? Read(int id)
-    //{
-    //    var saleToRead = DataSource.sales.SingleOrDefault(s => s.Id == id);
-    //    if (saleToRead == null)
-    //        throw new DalIdNotFoundException("Sale was not in the list");
-    //    return saleToRead;
-    //}
-    //public Sale? Read(Func<Sale, bool> filter)
-    //{
-    //    var saleToRead = DataSource.sales.FirstOrDefault(filter);
-    //    if (saleToRead == null)
-    //        throw new DalIdNotFoundException("No sale found matching the filter");
-    //    return saleToRead;
-    //}
-
-    //public List<Sale?> ReadAll(Func<Sale,bool>? filter=null)
-    //{
-    //    return filter == null
-    //         ? DataSource.sales.ToList()
-    //         : DataSource.sales.Where(filter).ToList();
-    //}
-    //public void Update(Sale sale)
-    //{
-    //    var existingSaleIndex = DataSource.sales.FindIndex(s => s.Id == sale.Id);
-    //    if (existingSaleIndex == -1)
-    //        throw new DalIdNotFoundException("Sale is not in the list");
-    //    DataSource.sales[existingSaleIndex] = sale;
-    //}
-    public int AddSale(Sale sale)
+    DalApi.IDal _dal = DalApi.Factory.Get;
+    
+    public int AddSale(BO.Sale sale)
     {
-        int curId = DataSource.Config.CurrentRunningSalesId;
-            Sale newSale = sale with { Id = curId };
-            DataSource.sales.Add(newSale);
-            return curId;
+       return  _dal.Sale.Create(sale.convertBOSaleToDOSale());
     }
 
-    public void DeleteSale(Sale sale)
+    public void DeleteSale(int saleId)
     {
-        throw new NotImplementedException();
+        _dal.Sale.Delete(saleId);
     }
 
-    public List<Sale> GetAllSales()
+    public List<BO.Sale> GetAllSales()
     {
-        throw new NotImplementedException();
+        return _dal.Sale.ReadAll()
+            .Select(s => s.convertDOSaleToBOSale())
+            .ToList();
     }
 
-    public Sale GetSaleById(int id)
+    public List<BO.Sale> GetAllSalesByParameter(Func<BO.Sale, bool> filter = null)
     {
-        throw new NotImplementedException();
+        // FILTER CAST TO Func<BO.sale, bool>
+        //כרגע לא משתמש בפונקצית סינון של dal
+        var list = _dal.Sale.ReadAll().Select(s => s.convertDOSaleToBOSale());
+        if (filter != null)
+            list = list.Where(filter);
+        return list.ToList();
     }
 
-    public Sale GetSaleByParameter(Func<Sale, bool> filter)
+    public BO.Sale GetSaleById(int id)
     {
-        throw new NotImplementedException();
+        return _dal.Sale.Read(id).convertDOSaleToBOSale();  
     }
 
-    public void UpdateSale(Sale sale)
+    public BO.Sale GetSaleByParameter(Func<BO.Sale, bool> filter)
     {
-        
+        return _dal.Sale.ReadAll()
+       .Select(s => s.convertDOSaleToBOSale()).
+       FirstOrDefault(filter);
+    }
+
+    public void UpdateSale(BO.Sale sale)
+    {
+        _dal.Sale.Update(sale.convertBOSaleToDOSale());
     }
 }
 
