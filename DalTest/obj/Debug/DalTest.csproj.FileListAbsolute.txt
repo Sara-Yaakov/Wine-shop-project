@@ -113,3 +113,25 @@ C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\refint\DalTest.
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.pdb
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\DalTest.genruntimeconfig.cache
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalTest\obj\Debug\ref\DalTest.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalTest.exe
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalTest.deps.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalTest.runtimeconfig.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalTest.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalTest.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.csproj.AssemblyReference.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.AssemblyInfoInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.AssemblyInfo.cs
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.csproj.CoreCompileInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.sourcelink.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.csproj.Up2Date
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\refint\DalTest.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\DalTest.genruntimeconfig.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalTest\obj\Debug\ref\DalTest.dll
+C:\bin\DalTest.exe
+C:\bin\DalTest.deps.json
+C:\bin\DalTest.runtimeconfig.json
+C:\bin\DalTest.dll
+C:\bin\DalTest.pdb

@@ -44,3 +44,19 @@ C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.dl
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalXML\obj\Debug\net8.0\refint\DalXML.dll
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.pdb
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalXML\obj\Debug\net8.0\ref\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\bin\Debug\net8.0\DalXML.deps.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\bin\Debug\net8.0\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\bin\Debug\net8.0\DalXML.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\bin\Debug\net8.0\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\bin\Debug\net8.0\DalFacade.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.csproj.AssemblyReference.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.AssemblyInfoInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.AssemblyInfo.cs
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.csproj.CoreCompileInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.sourcelink.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.csproj.Up2Date
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\refint\DalXML.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\DalXML.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalXML\obj\Debug\net8.0\ref\DalXML.dll

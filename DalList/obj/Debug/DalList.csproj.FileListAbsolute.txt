@@ -118,3 +118,20 @@ C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalList\obj\Debug\DalList.dll
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalList\obj\Debug\refint\DalList.dll
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalList\obj\Debug\DalList.pdb
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalList\obj\Debug\ref\DalList.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalList.deps.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalList.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalList.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.csproj.AssemblyReference.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.AssemblyInfoInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.AssemblyInfo.cs
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.csproj.CoreCompileInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.sourcelink.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.csproj.Up2Date
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\refint\DalList.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\DalList.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalList\obj\Debug\ref\DalList.dll
+C:\bin\DalList.deps.json
+C:\bin\DalList.dll
+C:\bin\DalList.pdb

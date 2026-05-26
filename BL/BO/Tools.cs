@@ -1,16 +1,31 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Runtime.CompilerServices;
 
 namespace BO;
 
 internal static class Tools
 {
-
     public static string ToStringProperty(this object obj, int indent = 0)
+    {
+        var visited = new HashSet<object>(ReferenceEqualityComparer.Instance);
+        return ToStringPropertyInternal(obj, indent, visited);
+    }
+
+    private static string ToStringPropertyInternal(object obj, int indent, HashSet<object> visited)
     {
         if (obj == null)
             return "null";
+
+        // Avoid infinite recursion on reference cycles
+        if (!obj.GetType().IsValueType)
+        {
+            if (visited.Contains(obj))
+                return "(cycle)";
+            visited.Add(obj);
+        }
 
         StringBuilder result = new StringBuilder();
         string indentStr = new string(' ', indent);
@@ -19,19 +34,19 @@ internal static class Tools
         {
             object value = prop.GetValue(obj);
 
-
             if (value == null)
             {
                 result.AppendLine($"{indentStr}{prop.Name}: null");
                 continue;
             }
 
+            var t = value.GetType();
 
-            if (value is string || value.GetType().IsPrimitive)
+            // treat strings and value types (primitives, enums, DateTime, structs) as simple
+            if (value is string || t.IsPrimitive || t.IsEnum || t.IsValueType)
             {
                 result.AppendLine($"{indentStr}{prop.Name}: {value}");
             }
-
             else if (value is IEnumerable enumerable && !(value is string))
             {
                 result.AppendLine($"{indentStr}{prop.Name}:");
@@ -42,31 +57,32 @@ internal static class Tools
                     {
                         result.AppendLine($"{indentStr}  - null");
                     }
-
-                    else if (item is string || item.GetType().IsPrimitive)
-                    {
-                        result.AppendLine($"{indentStr}  - {item}");
-                    }
-
                     else
                     {
-                        result.AppendLine($"{indentStr}  - ");
-                        result.Append(ToStringProperty(item, indent + 4));
+                        var itType = item.GetType();
+                        if (item is string || itType.IsPrimitive || itType.IsEnum || itType.IsValueType)
+                        {
+                            result.AppendLine($"{indentStr}  - {item}");
+                        }
+                        else
+                        {
+                            result.AppendLine($"{indentStr}  - ");
+                            result.Append(ToStringPropertyInternal(item, indent + 4, visited));
+                        }
                     }
                 }
             }
-
             else
             {
                 result.AppendLine($"{indentStr}{prop.Name}:");
-                result.Append(ToStringProperty(value, indent + 4));
+                result.Append(ToStringPropertyInternal(value, indent + 4, visited));
             }
         }
 
         return result.ToString();
     }
 
-    public static BO.Customer convertDOCustomerToBOCustomer(this DO.Customer customer)
+    public static BO.Customer ConvertDOCustomerToBOCustomer(this DO.Customer customer)
     {
         return new BO.Customer
         {
@@ -78,7 +94,7 @@ internal static class Tools
         };
     }
 
-    public static BO.Product convertDOProductToBOProduct(this DO.Product product)
+    public static BO.Product ConvertDOProductToBOProduct(this DO.Product product)
     {
         return new BO.Product
         {
@@ -98,7 +114,7 @@ internal static class Tools
         };
     }
 
-    public static BO.Sale convertDOSaleToBOSale(this DO.Sale sale)
+    public static BO.Sale ConvertDOSaleToBOSale(this DO.Sale sale)
     {
         return new BO.Sale
         {
@@ -113,7 +129,7 @@ internal static class Tools
     }
 
 
-    public static DO.Customer convertBOCustomerToDOCustomer(this BO.Customer customer)
+    public static DO.Customer ConvertBOCustomerToDOCustomer(this BO.Customer customer)
     {
         return new DO.Customer
         {
@@ -125,7 +141,7 @@ internal static class Tools
         };
     }
 
-    public static DO.Product convertBOProductToDOProduct(this BO.Product product)
+    public static DO.Product ConvertBOProductToDOProduct(this BO.Product product)
     {
         return new DO.Product 
         {
@@ -143,7 +159,7 @@ internal static class Tools
         };
     }
 
-    public static DO.Sale convertBOSaleToDOSale(this BO.Sale sale)
+    public static DO.Sale ConvertBOSaleToDOSale(this BO.Sale sale)
     {
         return new DO.Sale
         {
@@ -157,7 +173,12 @@ internal static class Tools
         };
     }
 
+}
 
-
-
+// Reference equality comparer for visited tracking
+internal sealed class ReferenceEqualityComparer : IEqualityComparer<object?>
+{
+    public static ReferenceEqualityComparer Instance { get; } = new ReferenceEqualityComparer();
+    public bool Equals(object? x, object? y) => ReferenceEquals(x, y);
+    public int GetHashCode(object? obj) => obj is null ? 0 : RuntimeHelpers.GetHashCode(obj);
 }

@@ -100,3 +100,18 @@ C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.dll
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\refint\DalFacade.dll
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\DalFacade.pdb
 C:\Users\Sari\Desktop\C#.net\Wine-shop-project\DalFacade\obj\Debug\ref\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalFacade.deps.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\bin\DalFacade.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.sourcelink.json
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\refint\DalFacade.dll
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\DalFacade.pdb
+C:\Users\ברכי\Documents\programming\2\C#.NET PROJ\Wine-shop-project\DalFacade\obj\Debug\ref\DalFacade.dll
+C:\bin\DalFacade.deps.json
+C:\bin\DalFacade.dll
+C:\bin\DalFacade.pdb

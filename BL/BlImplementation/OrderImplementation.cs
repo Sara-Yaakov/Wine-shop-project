@@ -1,8 +1,6 @@
 ﻿using BlApi;
 using static BO.Tools;
-using static BO.BlException;
 using DalApi;
-using System.Runtime.Intrinsics.Arm;
 
 namespace BlImplementation;
 
@@ -11,44 +9,59 @@ internal class OrderImplementation : IOrder
     private DalApi.IDal _dal = DalApi.Factory.Get;
     public void AddProductToOrder(BO.Order order, int productId, int amount)
     {
-        bool isProductInOrder = false;
-        BO.Product product=_dal.Product.Read(productId).convertDOProductToBOProduct();
+        if (order == null)
+            throw new ArgumentNullException(nameof(order));
 
-        if (amount > product.Amount)
+        var product = _dal.Product.Read(productId).ConvertDOProductToBOProduct();
+        if (product == null)
+            throw new BO.BlException.BlIdNotExistsException("Product not found in DAL");
+
+        // If product already in order - adjust amount
+        var existing = order.Products.FirstOrDefault(p => p.ProductId == productId);
+
+        if (existing != null)
         {
-            throw new BlNegetiveAmountInOrder("there are only " + product.Amount + " in the stock");
-        }
+            int newAmount = existing.Amount + amount;
+            if (newAmount < 0)
+                throw new BO.BlException.BlNoProductInStock("You are trying to remove more products than present in the order");
 
+            if (newAmount > product.Amount)
+                throw new BO.BlException.BlNegetiveAmountInOrder($"There are only {product.Amount} in the stock");
 
-        foreach (BO.ProductInOrder p in order.Products)
-        {
-            if (p.ProductId == productId)
+            if (newAmount == 0)
             {
-                if (p.Amount + amount < 0)
-                    throw new BlNoProductInStock("you are trying to download non-existent products");
-                p.Amount += amount;
-                SearchSaleForProduct(p, order.IsClubMember);
-                CalcTotalPriceForProduct(p);
-                isProductInOrder = true;
+                order.Products.Remove(existing);
+            }
+            else
+            {
+                existing.Amount = newAmount;
+                SearchSaleForProduct(existing, order.IsClubMember);
+                CalcTotalPriceForProduct(existing);
             }
         }
-        if (!isProductInOrder)
+        else
         {
-            if (amount < 0)
-                throw new BlNoProductInStock("you are trying to download non-existent products");
+            if (amount <= 0)
+                throw new BO.BlException.BlNoProductInStock("Amount must be positive when adding a new product to the order");
+
+            if (amount > product.Amount)
+                throw new BO.BlException.BlNegetiveAmountInOrder($"There are only {product.Amount} in the stock");
+
             BO.ProductInOrder pio = new BO.ProductInOrder
             {
                 ProductId = product.Id,
-                Amount = product.Amount,
+                Amount = amount,
                 ProductName = product.Name,
                 BasicPrice = product.Price,
+                SalesOfProduct = new List<BO.SaleInProduct>()
             };
+
             SearchSaleForProduct(pio, order.IsClubMember);
             CalcTotalPriceForProduct(pio);
             order.Products.Add(pio);
         }
-        CalcTotalPrice(order);
 
+        CalcTotalPrice(order);
     }
 
     public void CalcTotalPrice(BO.Order order)
@@ -58,23 +71,51 @@ internal class OrderImplementation : IOrder
         {
             totalPrice += pio.FinalPrice;
         }
+        order.TotalPrice = totalPrice;
     }
 
     public void CalcTotalPriceForProduct(BO.ProductInOrder productInOrder)
     {
-        List<BO.SaleInProduct> saleInProducts = new List<BO.SaleInProduct>();
-        double totalPrice = 0;
+        if (productInOrder == null)
+            throw new ArgumentNullException(nameof(productInOrder));
+
+        var saleInProducts = new List<BO.SaleInProduct>();
+        double totalPrice = 0.0;
         int restAmount = productInOrder.Amount;
-        productInOrder.SalesOfProduct.ForEach(sop =>
+
+        // Ensure we have applicable sales and sort by price per unit (cheapest first)
+        var applicable = (productInOrder.SalesOfProduct ?? new List<BO.SaleInProduct>())
+            .OrderBy(s => (double)s.Price / Math.Max(1, s.ProductAmount))
+            .ToList();
+
+        foreach (var sop in applicable)
         {
-            if (sop.ProductAmount < restAmount)
+            if (restAmount <= 0) break;
+
+            int packages = restAmount / sop.ProductAmount; // full bundles we can apply
+            if (packages > 0)
             {
-                totalPrice += restAmount / sop.ProductAmount * sop.Price;
-                restAmount -= restAmount % sop.ProductAmount;
+                // sop.Price is price per product (not bundle). Apply to packages * ProductAmount units.
+                int unitsCovered = packages * sop.ProductAmount;
+                double priceForUnits = unitsCovered * sop.Price; // unit price times units
+                totalPrice += priceForUnits;
+                restAmount -= unitsCovered;
+                // add the sale instance representing used units
+                saleInProducts.Add(new BO.SaleInProduct
+                {
+                    SaleId = sop.SaleId,
+                    ProductId = productInOrder.ProductId, // ensure product id matches the order product
+                    ProductAmount = unitsCovered,
+                    Price = priceForUnits,
+                    IsForClubMembersOnly = sop.IsForClubMembersOnly
+                });
             }
-            saleInProducts.Add(sop);
-        });
-        totalPrice += restAmount * productInOrder.BasicPrice;
+        }
+
+        // remaining units at basic price
+        if (restAmount > 0)
+            totalPrice += restAmount * productInOrder.BasicPrice;
+
         productInOrder.FinalPrice = totalPrice;
         productInOrder.SalesOfProduct = saleInProducts;
     }
@@ -82,32 +123,32 @@ internal class OrderImplementation : IOrder
     public void SearchSaleForProduct(BO.ProductInOrder productInOrder, bool isCustomerClubMember)
     {
         List<BO.Sale> sales;
-        if (isCustomerClubMember == true)
+        if (isCustomerClubMember)
         {
             sales = _dal.Sale.ReadAll(
                 s => s.StartDate < DateTime.Now &&
-                    s.EndDate > DateTime.Now &&
-                    s.RequiredAmount <= productInOrder.Amount)
-                    .Select(s=>s.convertDOSaleToBOSale())
-                    .ToList();
+                     s.EndDate > DateTime.Now &&
+                     s.RequiredAmount <= productInOrder.Amount)
+                .Select(s => s.ConvertDOSaleToBOSale())
+                .ToList();
         }
         else
         {
             sales = _dal.Sale.ReadAll(
                 s => s.StartDate < DateTime.Now &&
-                    s.EndDate > DateTime.Now &&
-                    s.RequiredAmount <= productInOrder.Amount &&
-                    s.IsForClubMembersOnly == false)
-                    .Select(s => s.convertDOSaleToBOSale())
-                    .ToList(); 
+                     s.EndDate > DateTime.Now &&
+                     s.RequiredAmount <= productInOrder.Amount &&
+                     s.IsForClubMembersOnly == false)
+                .Select(s => s.ConvertDOSaleToBOSale())
+                .ToList();
         }
 
         productInOrder.SalesOfProduct = sales
-            .OrderBy(s => s.PriceAfterDiscount)
+            .OrderBy(s => (double)s.PriceAfterDiscount / Math.Max(1, s.RequiredAmount))
             .Select(s => new BO.SaleInProduct
             {
                 SaleId = s.Id,
-                ProductId = s.ProductId,
+                ProductId = productInOrder.ProductId, // ensure product id matches the order product
                 ProductAmount = s.RequiredAmount,
                 Price = s.PriceAfterDiscount,
                 IsForClubMembersOnly = s.IsForClubMembersOnly
@@ -118,13 +159,20 @@ internal class OrderImplementation : IOrder
 
     public void DoOrder(BO.Order order)
     {
-        foreach ( BO.ProductInOrder p in order.Products)
+        if (order == null)
+            throw new ArgumentNullException(nameof(order));
+
+        foreach (BO.ProductInOrder p in order.Products)
         {
-            BO.Product prod = _dal.Product.Read(p.ProductId).convertDOProductToBOProduct();
+            var prod = _dal.Product.Read(p.ProductId).ConvertDOProductToBOProduct();
+            if (prod == null)
+                throw new BO.BlException.BlIdNotExistsException($"Product {p.ProductId} not found in DAL");
+
+            if (p.Amount > prod.Amount)
+                throw new BO.BlException.BlNegetiveAmountInOrder($"Not enough stock for product {prod.Name}. Requested {p.Amount}, available {prod.Amount}");
+
             prod.Amount -= p.Amount;
-            _dal.Product.Update(prod.convertBOProductToDOProduct());
+            _dal.Product.Update(prod.ConvertBOProductToDOProduct());
         }
-
     }
-
 }

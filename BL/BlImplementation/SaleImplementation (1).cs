@@ -2,7 +2,6 @@
 using Dal;
 using static BO.Tools;
 using System.Linq;
-using static Dal.DalExceptions;
 
 namespace BlImplementation;
 
@@ -12,26 +11,39 @@ internal class SaleImplementation : ISale
     
     public int AddSale(BO.Sale sale)
     {
-       return  _dal.Sale.Create(sale.convertBOSaleToDOSale());
+        try
+        {
+            return _dal.Sale.Create(sale.ConvertBOSaleToDOSale());
+        }
+        catch (Dal.DalExceptions.DalIdAlreadyExistsException ex)
+        {
+            throw new BO.BlException.BlIdAlreadyExistsException(ex.Message, ex);
+        }
     }
 
     public void DeleteSale(int saleId)
     {
-        _dal.Sale.Delete(saleId);
+        try
+        {
+            _dal.Sale.Delete(saleId);
+        }
+        catch (Dal.DalExceptions.DalIdNotFoundException ex)
+        {
+            throw new BO.BlException.BlIdNotExistsException(ex.Message, ex);
+        }
     }
 
     public List<BO.Sale> GetAllSales()
     {
         return _dal.Sale.ReadAll()
-            .Select(s => s.convertDOSaleToBOSale())
+            .Where(s => s != null)
+            .Select(s => s!.ConvertDOSaleToBOSale())
             .ToList();
     }
 
     public List<BO.Sale> GetAllSalesByParameter(Func<BO.Sale, bool> filter = null)
     {
-        // FILTER CAST TO Func<BO.sale, bool>
-        //כרגע לא משתמש בפונקצית סינון של dal
-        var list = _dal.Sale.ReadAll().Select(s => s.convertDOSaleToBOSale());
+        var list = _dal.Sale.ReadAll().Where(s => s != null).Select(s => s!.ConvertDOSaleToBOSale());
         if (filter != null)
             list = list.Where(filter);
         return list.ToList();
@@ -39,19 +51,36 @@ internal class SaleImplementation : ISale
 
     public BO.Sale GetSaleById(int id)
     {
-        return _dal.Sale.Read(id).convertDOSaleToBOSale();  
+        try
+        {
+            var s = _dal.Sale.Read(id);
+            if (s == null) throw new Dal.DalExceptions.DalIdNotFoundException($"Sale {id} not found");
+            return s.ConvertDOSaleToBOSale();
+        }
+        catch (Dal.DalExceptions.DalIdNotFoundException ex)
+        {
+            throw new BO.BlException.BlIdNotExistsException(ex.Message, ex);
+        }
     }
 
     public BO.Sale GetSaleByParameter(Func<BO.Sale, bool> filter)
     {
         return _dal.Sale.ReadAll()
-       .Select(s => s.convertDOSaleToBOSale()).
+       .Where(s => s != null)
+       .Select(s => s!.ConvertDOSaleToBOSale()).
        FirstOrDefault(filter);
     }
 
     public void UpdateSale(BO.Sale sale)
     {
-        _dal.Sale.Update(sale.convertBOSaleToDOSale());
+        try
+        {
+            _dal.Sale.Update(sale.ConvertBOSaleToDOSale());
+        }
+        catch (Dal.DalExceptions.DalIdNotFoundException ex)
+        {
+            throw new BO.BlException.BlIdNotExistsException(ex.Message, ex);
+        }
     }
 }
 
