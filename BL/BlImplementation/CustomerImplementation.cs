@@ -72,6 +72,8 @@ internal class CustomerImplementation : ICustomer // בעיה עם הפילטר�
 
     }
 
+
+    // Get first customer matching a BO filter. We convert all DO to BO then filter.
     public BO.Customer GetCustomerByParameter(Func<BO.Customer, bool> filter)
     {
         var list = _dal.Customer.ReadAll()
@@ -80,17 +82,18 @@ internal class CustomerImplementation : ICustomer // בעיה עם הפילטר�
         return list.FirstOrDefault(filter);
     }
    
+    // Return all customers.
     public List<BO.Customer> GetAllCustomers()
     {
         var list = _dal.Customer.ReadAll();
         return list.Select(c => c.ConvertDOCustomerToBOCustomer()).ToList();
     }
 
+    // Return all customers with optional BO-level filter.
     public List<BO.Customer> GetAllCustomersByParameter(Func<BO.Customer, bool> filter = null)
     {
 
-        // FILTER CAST TO Func<BO.Customer, bool>
-        //כרגע לא משתמש בפונקצית סינון של dal
+        // student: DAL filtering not used here. Convert DO->BO then apply filter.
         var list = _dal.Customer.ReadAll().Select(c => c.ConvertDOCustomerToBOCustomer());
         if(filter != null)
             list = list.Where(filter);

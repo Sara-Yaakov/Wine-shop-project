@@ -6,17 +6,17 @@ using BlApi;
 
 namespace WinFormsUI
 {
-    public partial class PromotionForm : Form
+    public partial class SaleForm : Form
     {
         private readonly ISale _saleBl;
         private readonly Sale? _existing;
 
-        public PromotionForm()
+        public SaleForm()
         {
             InitializeComponent();
         }
 
-        public PromotionForm(Sale existing) : this()
+        public SaleForm(Sale existing) : this()
         {
             _existing = existing;
             LoadExisting(existing);
@@ -43,17 +43,17 @@ namespace WinFormsUI
             this.ClientSize = new System.Drawing.Size(420, 320);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterParent;
-            this.Text = "Promotion";
+            this.Text = "Sale";
 
             // controls
             var lblProduct = new Label() { Text = "Product", Location = new System.Drawing.Point(12, 9), Size = new System.Drawing.Size(100, 23) };
-            cmbProducts = new ComboBox() { Location = new System.Drawing.Point(12, 35), Size = new System.Drawing.Size(300, 23), DropDownStyle = ComboBoxStyle.DropDownList }; 
+            cmbProducts = new ComboBox() { Location = new System.Drawing.Point(12, 35), Size = new System.Drawing.Size(300, 23), DropDownStyle = ComboBoxStyle.DropDownList };
 
             var lblRequired = new Label() { Text = "Required Amount", Location = new System.Drawing.Point(12, 65), Size = new System.Drawing.Size(120, 23) };
             numRequiredAmount = new NumericUpDown() { Location = new System.Drawing.Point(12, 90), Size = new System.Drawing.Size(120, 23), Minimum = 1, Maximum = 100000, Value = 1 };
 
             var lblPrice = new Label() { Text = "Price After Discount", Location = new System.Drawing.Point(150, 65), Size = new System.Drawing.Size(140, 23) };
-            numPriceAfterDiscount = new NumericUpDown() { Location = new System.Drawing.Point(150, 90), Size = new System.Drawing.Size(120, 23), Minimum = 0, Maximum = 1000000 }; 
+            numPriceAfterDiscount = new NumericUpDown() { Location = new System.Drawing.Point(150, 90), Size = new System.Drawing.Size(120, 23), Minimum = 0, Maximum = 1000000 };
 
             chkClubOnly = new CheckBox() { Text = "Club Members Only", Location = new System.Drawing.Point(12, 120), Size = new System.Drawing.Size(160, 23) };
 

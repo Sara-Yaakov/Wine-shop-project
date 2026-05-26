@@ -6,10 +6,10 @@ namespace WinFormsUI
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabProducts;
         private System.Windows.Forms.TabPage tabCustomers;
-        private System.Windows.Forms.TabPage tabPromotions;
+        private System.Windows.Forms.TabPage tabSales;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.DataGridView dgvCustomers;
-        private System.Windows.Forms.DataGridView dgvPromotions;
+        private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.Button btnProductsAdd;
         private System.Windows.Forms.Button btnProductsUpdate;
         private System.Windows.Forms.Button btnProductsDelete;
@@ -18,10 +18,10 @@ namespace WinFormsUI
         private System.Windows.Forms.Button btnCustomersUpdate;
         private System.Windows.Forms.Button btnCustomersDelete;
         private System.Windows.Forms.Button btnCustomersRefresh;
-        private System.Windows.Forms.Button btnPromotionsAdd;
-        private System.Windows.Forms.Button btnPromotionsUpdate;
-        private System.Windows.Forms.Button btnPromotionsDelete;
-        private System.Windows.Forms.Button btnPromotionsRefresh;
+        private System.Windows.Forms.Button btnSalesAdd;
+        private System.Windows.Forms.Button btnSalesUpdate;
+        private System.Windows.Forms.Button btnSalesDelete;
+        private System.Windows.Forms.Button btnSalesRefresh;
         private System.Windows.Forms.Button btnBackToRoleSelection; // back button to return to role selection
 
         protected override void Dispose(bool disposing)
@@ -36,10 +36,10 @@ namespace WinFormsUI
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabProducts = new System.Windows.Forms.TabPage();
             this.tabCustomers = new System.Windows.Forms.TabPage();
-            this.tabPromotions = new System.Windows.Forms.TabPage();
+            this.tabSales = new System.Windows.Forms.TabPage();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
-            this.dgvPromotions = new System.Windows.Forms.DataGridView();
+            this.dgvSales = new System.Windows.Forms.DataGridView();
             this.btnProductsAdd = new System.Windows.Forms.Button();
             this.btnProductsUpdate = new System.Windows.Forms.Button();
             this.btnProductsDelete = new System.Windows.Forms.Button();
@@ -48,18 +48,18 @@ namespace WinFormsUI
             this.btnCustomersUpdate = new System.Windows.Forms.Button();
             this.btnCustomersDelete = new System.Windows.Forms.Button();
             this.btnCustomersRefresh = new System.Windows.Forms.Button();
-            this.btnPromotionsAdd = new System.Windows.Forms.Button();
-            this.btnPromotionsUpdate = new System.Windows.Forms.Button();
-            this.btnPromotionsDelete = new System.Windows.Forms.Button();
-            this.btnPromotionsRefresh = new System.Windows.Forms.Button();
+            this.btnSalesAdd = new System.Windows.Forms.Button();
+            this.btnSalesUpdate = new System.Windows.Forms.Button();
+            this.btnSalesDelete = new System.Windows.Forms.Button();
+            this.btnSalesRefresh = new System.Windows.Forms.Button();
             this.btnBackToRoleSelection = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabProducts.SuspendLayout();
             this.tabCustomers.SuspendLayout();
-            this.tabPromotions.SuspendLayout();
+            this.tabSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPromotions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBackToRoleSelection
@@ -74,7 +74,7 @@ namespace WinFormsUI
             // 
             this.tabControl.Controls.Add(this.tabProducts);
             this.tabControl.Controls.Add(this.tabCustomers);
-            this.tabControl.Controls.Add(this.tabPromotions);
+            this.tabControl.Controls.Add(this.tabSales);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.None;
             this.tabControl.Location = new System.Drawing.Point(0, 48);
             this.tabControl.Name = "tabControl";
@@ -112,20 +112,20 @@ namespace WinFormsUI
             this.tabCustomers.Text = "Customers";
             this.tabCustomers.UseVisualStyleBackColor = true;
             // 
-            // tabPromotions
+            // tabSales
             // 
-            this.tabPromotions.Controls.Add(this.dgvPromotions);
-            this.tabPromotions.Controls.Add(this.btnPromotionsAdd);
-            this.tabPromotions.Controls.Add(this.btnPromotionsUpdate);
-            this.tabPromotions.Controls.Add(this.btnPromotionsDelete);
-            this.tabPromotions.Controls.Add(this.btnPromotionsRefresh);
-            this.tabPromotions.Location = new System.Drawing.Point(4, 24);
-            this.tabPromotions.Name = "tabPromotions";
-            this.tabPromotions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPromotions.Size = new System.Drawing.Size(792, 374);
-            this.tabPromotions.TabIndex = 2;
-            this.tabPromotions.Text = "Promotions";
-            this.tabPromotions.UseVisualStyleBackColor = true;
+            this.tabSales.Controls.Add(this.dgvSales);
+            this.tabSales.Controls.Add(this.btnSalesAdd);
+            this.tabSales.Controls.Add(this.btnSalesUpdate);
+            this.tabSales.Controls.Add(this.btnSalesDelete);
+            this.tabSales.Controls.Add(this.btnSalesRefresh);
+            this.tabSales.Location = new System.Drawing.Point(4, 24);
+            this.tabSales.Name = "tabSales";
+            this.tabSales.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSales.Size = new System.Drawing.Size(792, 374);
+            this.tabSales.TabIndex = 2;
+            this.tabSales.Text = "Sales";
+            this.tabSales.UseVisualStyleBackColor = true;
             // 
             // dgvProducts
             // 
@@ -151,17 +151,17 @@ namespace WinFormsUI
             this.dgvCustomers.ReadOnly = true;
             this.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
-            // dgvPromotions
+            // dgvSales
             // 
-            this.dgvPromotions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dgvSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPromotions.Location = new System.Drawing.Point(8, 8);
-            this.dgvPromotions.Name = "dgvPromotions";
-            this.dgvPromotions.Size = new System.Drawing.Size(776, 332);
-            this.dgvPromotions.TabIndex = 0;
-            this.dgvPromotions.ReadOnly = true;
-            this.dgvPromotions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSales.Location = new System.Drawing.Point(8, 8);
+            this.dgvSales.Name = "dgvSales";
+            this.dgvSales.Size = new System.Drawing.Size(776, 332);
+            this.dgvSales.TabIndex = 0;
+            this.dgvSales.ReadOnly = true;
+            this.dgvSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
             // btnProductsAdd
             // 
@@ -227,37 +227,37 @@ namespace WinFormsUI
             this.btnCustomersRefresh.Text = "Refresh";
             this.btnCustomersRefresh.Click += new System.EventHandler(this.btnCustomersRefresh_Click);
             // 
-            // btnPromotionsAdd
+            // btnSalesAdd
             // 
-            this.btnPromotionsAdd.Location = new System.Drawing.Point(8, 348);
-            this.btnPromotionsAdd.Name = "btnPromotionsAdd";
-            this.btnPromotionsAdd.Size = new System.Drawing.Size(90, 30);
-            this.btnPromotionsAdd.Text = "Add";
-            this.btnPromotionsAdd.Click += new System.EventHandler(this.btnPromotionsAdd_Click);
+            this.btnSalesAdd.Location = new System.Drawing.Point(8, 348);
+            this.btnSalesAdd.Name = "btnSalesAdd";
+            this.btnSalesAdd.Size = new System.Drawing.Size(90, 30);
+            this.btnSalesAdd.Text = "Add";
+            this.btnSalesAdd.Click += new System.EventHandler(this.btnSalesAdd_Click);
             // 
-            // btnPromotionsUpdate
+            // btnSalesUpdate
             // 
-            this.btnPromotionsUpdate.Location = new System.Drawing.Point(108, 348);
-            this.btnPromotionsUpdate.Name = "btnPromotionsUpdate";
-            this.btnPromotionsUpdate.Size = new System.Drawing.Size(90, 30);
-            this.btnPromotionsUpdate.Text = "Update";
-            this.btnPromotionsUpdate.Click += new System.EventHandler(this.btnPromotionsUpdate_Click);
+            this.btnSalesUpdate.Location = new System.Drawing.Point(108, 348);
+            this.btnSalesUpdate.Name = "btnSalesUpdate";
+            this.btnSalesUpdate.Size = new System.Drawing.Size(90, 30);
+            this.btnSalesUpdate.Text = "Update";
+            this.btnSalesUpdate.Click += new System.EventHandler(this.btnSalesUpdate_Click);
             // 
-            // btnPromotionsDelete
+            // btnSalesDelete
             // 
-            this.btnPromotionsDelete.Location = new System.Drawing.Point(208, 348);
-            this.btnPromotionsDelete.Name = "btnPromotionsDelete";
-            this.btnPromotionsDelete.Size = new System.Drawing.Size(90, 30);
-            this.btnPromotionsDelete.Text = "Delete";
-            this.btnPromotionsDelete.Click += new System.EventHandler(this.btnPromotionsDelete_Click);
+            this.btnSalesDelete.Location = new System.Drawing.Point(208, 348);
+            this.btnSalesDelete.Name = "btnSalesDelete";
+            this.btnSalesDelete.Size = new System.Drawing.Size(90, 30);
+            this.btnSalesDelete.Text = "Delete";
+            this.btnSalesDelete.Click += new System.EventHandler(this.btnSalesDelete_Click);
             // 
-            // btnPromotionsRefresh
+            // btnSalesRefresh
             // 
-            this.btnPromotionsRefresh.Location = new System.Drawing.Point(308, 348);
-            this.btnPromotionsRefresh.Name = "btnPromotionsRefresh";
-            this.btnPromotionsRefresh.Size = new System.Drawing.Size(90, 30);
-            this.btnPromotionsRefresh.Text = "Refresh";
-            this.btnPromotionsRefresh.Click += new System.EventHandler(this.btnPromotionsRefresh_Click);
+            this.btnSalesRefresh.Location = new System.Drawing.Point(308, 348);
+            this.btnSalesRefresh.Name = "btnSalesRefresh";
+            this.btnSalesRefresh.Size = new System.Drawing.Size(90, 30);
+            this.btnSalesRefresh.Text = "Refresh";
+            this.btnSalesRefresh.Click += new System.EventHandler(this.btnSalesRefresh_Click);
             // 
             // ManagerDashboardForm
             // 
@@ -272,10 +272,10 @@ namespace WinFormsUI
             this.tabControl.ResumeLayout(false);
             this.tabProducts.ResumeLayout(false);
             this.tabCustomers.ResumeLayout(false);
-            this.tabPromotions.ResumeLayout(false);
+            this.tabSales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPromotions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
         }
     }

@@ -16,7 +16,7 @@ namespace WinFormsUI
         {
             RefreshProducts();
             RefreshCustomers();
-            RefreshPromotions();
+            RefreshSales();
         }
 
         private void RefreshProducts()
@@ -43,11 +43,11 @@ namespace WinFormsUI
             }
         }
 
-        private void RefreshPromotions()
+        private void RefreshSales()
         {
             try
             {
-                dgvPromotions.DataSource = _bl.Sale.GetAllSales();
+                dgvSales.DataSource = _bl.Sale.GetAllSales();
             }
             catch (Exception ex)
             {
@@ -121,30 +121,30 @@ namespace WinFormsUI
 
         private void btnCustomersRefresh_Click(object sender, EventArgs e) => RefreshCustomers();
 
-        private void btnPromotionsAdd_Click(object sender, EventArgs e)
+        private void btnSalesAdd_Click(object sender, EventArgs e)
         {
-            var f = new PromotionForm();
+            var f = new SaleForm();
             if (f.ShowDialog() == DialogResult.OK)
-                RefreshPromotions();
+                RefreshSales();
         }
 
-        private void btnPromotionsUpdate_Click(object sender, EventArgs e)
+        private void btnSalesUpdate_Click(object sender, EventArgs e)
         {
-            if (dgvPromotions.CurrentRow == null) return;
-            var item = (dynamic)dgvPromotions.CurrentRow.DataBoundItem;
-            var f = new PromotionForm(item);
+            if (dgvSales.CurrentRow == null) return;
+            var item = (dynamic)dgvSales.CurrentRow.DataBoundItem;
+            var f = new SaleForm(item);
             if (f.ShowDialog() == DialogResult.OK)
-                RefreshPromotions();
+                RefreshSales();
         }
 
-        private void btnPromotionsDelete_Click(object sender, EventArgs e)
+        private void btnSalesDelete_Click(object sender, EventArgs e)
         {
-            if (dgvPromotions.CurrentRow == null) return;
-            var item = (dynamic)dgvPromotions.CurrentRow.DataBoundItem;
+            if (dgvSales.CurrentRow == null) return;
+            var item = (dynamic)dgvSales.CurrentRow.DataBoundItem;
             try
             {
                 _bl.Sale.DeleteSale(item.Id);
-                RefreshPromotions();
+                RefreshSales();
             }
             catch (Exception ex)
             {
@@ -152,7 +152,7 @@ namespace WinFormsUI
             }
         }
 
-        private void btnPromotionsRefresh_Click(object sender, EventArgs e) => RefreshPromotions();
+        private void btnSalesRefresh_Click(object sender, EventArgs e) => RefreshSales();
 
         private void btnBackToRoleSelection_Click(object sender, EventArgs e)
         {
