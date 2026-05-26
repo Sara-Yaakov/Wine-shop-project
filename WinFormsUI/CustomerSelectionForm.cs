@@ -16,5 +16,12 @@ namespace WinFormsUI
             f.Show();
             this.Hide();
         }
+
+        private void btnBackToRoleSelection_Click(object sender, EventArgs e)
+        {
+            var f = new RoleSelectionForm();
+            f.Show();
+            this.Close();
+        }
     }
 }

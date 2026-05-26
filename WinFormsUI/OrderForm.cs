@@ -16,26 +16,38 @@ namespace WinFormsUI
         {
             InitializeComponent();
             StartNewOrder();
+            UpdateBackButtonState();
         }
 
         private void StartNewOrder()
         {
             _order = new BO.Order { IsClubMember = false, Products = new List<ProductInOrder>(), TotalPrice = 0 };
             RefreshOrderGrid();
+            UpdateBackButtonState();
         }
 
         private void RefreshOrderGrid()
         {
             dgvOrderItems.DataSource = null;
-            dgvOrderItems.DataSource = _order.Products.Select(p => new
+            // compute projection with fresh calculation to avoid stale FinalPrice
+            var rows = _order.Products.Select(p => new
             {
                 p.ProductId,
                 p.ProductName,
                 Quantity = p.Amount,
                 UnitPrice = p.BasicPrice,
-                LineTotal = p.FinalPrice
+                LineTotal = Math.Round(p.BasicPrice * p.Amount, 2)
             }).ToList();
+            dgvOrderItems.DataSource = rows;
             lblTotal.Text = $"Total: {_order.TotalPrice:F2}";
+            UpdateBackButtonState();
+        }
+
+        private void UpdateBackButtonState()
+        {
+            // enable back button only when order is empty
+            if (btnBack == null) return;
+            btnBack.Enabled = _order == null || !_order.Products.Any();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -59,7 +71,9 @@ namespace WinFormsUI
         private int? GetSelectedProductId()
         {
             if (dgvOrderItems.CurrentRow == null) return null;
-            return (int?)dgvOrderItems.CurrentRow.Cells[0].Value;
+            var val = dgvOrderItems.CurrentRow.Cells[0].Value;
+            if (val == null) return null;
+            return Convert.ToInt32(val);
         }
 
         private void btnIncrease_Click(object sender, EventArgs e)
@@ -84,7 +98,19 @@ namespace WinFormsUI
             if (!id.HasValue) return;
             try
             {
-                _bl.Order.AddProductToOrder(_order, id.Value, -1);
+                // get current amount
+                var pio = _order.Products.FirstOrDefault(p => p.ProductId == id.Value);
+                if (pio == null) return;
+                if (pio.Amount <= 1)
+                {
+                    // remove item
+                    _bl.Order.AddProductToOrder(_order, id.Value, -pio.Amount);
+                }
+                else
+                {
+                    _bl.Order.AddProductToOrder(_order, id.Value, -1);
+                }
+
                 _bl.Order.CalcTotalPrice(_order);
                 RefreshOrderGrid();
             }
@@ -142,6 +168,19 @@ namespace WinFormsUI
         {
             _bl.Order.SearchSaleForProduct(pio, _order.IsClubMember);
             _bl.Order.CalcTotalPriceForProduct(pio);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (_order != null && _order.Products.Any())
+            {
+                MessageBox.Show("Cannot go back while order has items. Remove items first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var f = new CustomerSelectionForm();
+            f.Show();
+            this.Close();
         }
     }
 }

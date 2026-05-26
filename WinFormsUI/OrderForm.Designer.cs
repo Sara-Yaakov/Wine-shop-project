@@ -12,6 +12,7 @@ namespace WinFormsUI
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnPurchase;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnBack;
 
         protected override void Dispose(bool disposing)
         {
@@ -31,6 +32,7 @@ namespace WinFormsUI
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnPurchase = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +97,13 @@ namespace WinFormsUI
             this.lblTotal.Size = new System.Drawing.Size(300, 23);
             this.lblTotal.Text = "Total: 0.00";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(630, 300);
+            this.btnBack.Size = new System.Drawing.Size(120, 30);
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // OrderForm
             // 
             this.ClientSize = new System.Drawing.Size(760, 400);
@@ -107,6 +116,7 @@ namespace WinFormsUI
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnPurchase);
             this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.btnBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";

@@ -22,6 +22,7 @@ namespace WinFormsUI
         private System.Windows.Forms.Button btnPromotionsUpdate;
         private System.Windows.Forms.Button btnPromotionsDelete;
         private System.Windows.Forms.Button btnPromotionsRefresh;
+        private System.Windows.Forms.Button btnBackToRoleSelection; // back button to return to role selection
 
         protected override void Dispose(bool disposing)
         {
@@ -51,6 +52,7 @@ namespace WinFormsUI
             this.btnPromotionsUpdate = new System.Windows.Forms.Button();
             this.btnPromotionsDelete = new System.Windows.Forms.Button();
             this.btnPromotionsRefresh = new System.Windows.Forms.Button();
+            this.btnBackToRoleSelection = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabProducts.SuspendLayout();
             this.tabCustomers.SuspendLayout();
@@ -60,16 +62,24 @@ namespace WinFormsUI
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromotions)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnBackToRoleSelection
+            // 
+            this.btnBackToRoleSelection.Location = new System.Drawing.Point(700, 8);
+            this.btnBackToRoleSelection.Name = "btnBackToRoleSelection";
+            this.btnBackToRoleSelection.Size = new System.Drawing.Size(90, 30);
+            this.btnBackToRoleSelection.Text = "Back";
+            this.btnBackToRoleSelection.Click += new System.EventHandler(this.btnBackToRoleSelection_Click);
+            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabProducts);
             this.tabControl.Controls.Add(this.tabCustomers);
             this.tabControl.Controls.Add(this.tabPromotions);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.None;
+            this.tabControl.Location = new System.Drawing.Point(0, 48);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(800, 450);
+            this.tabControl.Size = new System.Drawing.Size(800, 402);
             this.tabControl.TabIndex = 0;
             // 
             // tabProducts
@@ -82,7 +92,7 @@ namespace WinFormsUI
             this.tabProducts.Location = new System.Drawing.Point(4, 24);
             this.tabProducts.Name = "tabProducts";
             this.tabProducts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProducts.Size = new System.Drawing.Size(792, 422);
+            this.tabProducts.Size = new System.Drawing.Size(792, 374);
             this.tabProducts.TabIndex = 0;
             this.tabProducts.Text = "Products";
             this.tabProducts.UseVisualStyleBackColor = true;
@@ -97,7 +107,7 @@ namespace WinFormsUI
             this.tabCustomers.Location = new System.Drawing.Point(4, 24);
             this.tabCustomers.Name = "tabCustomers";
             this.tabCustomers.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCustomers.Size = new System.Drawing.Size(792, 422);
+            this.tabCustomers.Size = new System.Drawing.Size(792, 374);
             this.tabCustomers.TabIndex = 1;
             this.tabCustomers.Text = "Customers";
             this.tabCustomers.UseVisualStyleBackColor = true;
@@ -112,7 +122,7 @@ namespace WinFormsUI
             this.tabPromotions.Location = new System.Drawing.Point(4, 24);
             this.tabPromotions.Name = "tabPromotions";
             this.tabPromotions.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPromotions.Size = new System.Drawing.Size(792, 422);
+            this.tabPromotions.Size = new System.Drawing.Size(792, 374);
             this.tabPromotions.TabIndex = 2;
             this.tabPromotions.Text = "Promotions";
             this.tabPromotions.UseVisualStyleBackColor = true;
@@ -254,6 +264,7 @@ namespace WinFormsUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl);
+            this.Controls.Add(this.btnBackToRoleSelection);
             this.Name = "ManagerDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manager Dashboard";
