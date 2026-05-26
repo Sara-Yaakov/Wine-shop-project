@@ -93,7 +93,7 @@ internal class CustomerImplementation : ICustomer // בעיה עם הפילטר�
     public List<BO.Customer> GetAllCustomersByParameter(Func<BO.Customer, bool> filter = null)
     {
 
-        // student: DAL filtering not used here. Convert DO->BO then apply filter.
+        //  DAL filtering not used here. Convert DO->BO then apply filter.
         var list = _dal.Customer.ReadAll().Select(c => c.ConvertDOCustomerToBOCustomer());
         if(filter != null)
             list = list.Where(filter);
