@@ -95,9 +95,9 @@ internal class OrderImplementation : IOrder
             int packages = restAmount / sop.ProductAmount; // full bundles we can apply
             if (packages > 0)
             {
-                // sop.Price is price per product (not bundle). Apply to packages * ProductAmount units.
+                // sop.Price is the bundle price. Apply it once per full bundle.
                 int unitsCovered = packages * sop.ProductAmount;
-                double priceForUnits = unitsCovered * sop.Price; // unit price times units
+                double priceForUnits = packages * sop.Price; // bundle price times bundles
                 totalPrice += priceForUnits;
                 restAmount -= unitsCovered;
                 // add the sale instance representing used units
