@@ -31,7 +31,7 @@ internal class SaleImplementation : ISale
     }
     public int Create(Sale sale)
     {
-        int curId = DalXml.Config.SaleNum;
+        int curId = Config.SaleNum;
         Sale newSale = sale with { Id = curId };
         List<Sale> salesList= LoadList();
         salesList.Add(newSale);

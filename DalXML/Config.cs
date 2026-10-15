@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DalXml
+namespace Dal
 {
     internal static class Config
     {
