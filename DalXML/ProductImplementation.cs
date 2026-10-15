@@ -7,7 +7,7 @@ namespace Dal;
 
 internal class ProductImplementation : IProduct
 {
-    private const string PRODUCTS_FILE_PATH = "../xml/products.xml";
+    private static readonly string PRODUCTS_FILE_PATH = Path.Combine(Config.XmlDirectory, "products.xml");
 
     private const string ELEMENT_PRODUCT = "Product";
     private const string ID = "Id";

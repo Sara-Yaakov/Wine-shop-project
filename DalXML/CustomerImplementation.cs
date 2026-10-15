@@ -6,7 +6,7 @@ using static Dal.DalExceptions;
 namespace Dal;
 internal class CustomerImplementation : ICustomer
 {
-    const string CUSTOMERS_FILE_PATH = "../xml/customers.xml";
+    static readonly string CUSTOMERS_FILE_PATH = Path.Combine(Config.XmlDirectory, "customers.xml");
     private List<Customer> LoadList()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<Customer>));

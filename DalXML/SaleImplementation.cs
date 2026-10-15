@@ -12,7 +12,7 @@ namespace Dal;
 
 internal class SaleImplementation : ISale
 {
-    const string SALES_FILE_PATH = "../xml/sales.xml";
+    static readonly string SALES_FILE_PATH = Path.Combine(Config.XmlDirectory, "sales.xml");
     private List<Sale> LoadList()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(List<Sale>));
