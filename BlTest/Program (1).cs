@@ -53,7 +53,7 @@ internal class Program
             Console.WriteLine($"Created product id={pid}");
 
             // 2. Create customer
-            var cust = new Customer { Id = 1, Name = "AutoCust", Address = "Addr", PhoneNumber = "000", IsClubMember = true };
+            var cust = new Customer { Id = 999, Name = "AutoCust", Address = "Addr", PhoneNumber = "000", IsClubMember = true };
             int cid = s_bl.Customer.AddCustomer(cust);
             Console.WriteLine($"Created customer id={cid}");
 
