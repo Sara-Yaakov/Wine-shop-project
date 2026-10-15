@@ -5,8 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<RootNamespace>"Dal"</RootNamespace>
-		<BaseOutputPath>M:\c#.net\DotNet2026_5119_9622_0193\bin</BaseOutputPath>
-		<OutputPath>$(SolutionDir)\bin\</OutputPath>
+		<OutputPath>$(MSBuildThisFileDirectory)..\bin\</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 		<UseCommonOutputDirectory>true</UseCommonOutputDirectory>

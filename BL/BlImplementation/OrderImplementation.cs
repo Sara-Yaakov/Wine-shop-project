@@ -85,6 +85,7 @@ internal class OrderImplementation : IOrder
 
         // Ensure we have applicable sales and sort by price per unit (cheapest first)
         var applicable = (productInOrder.SalesOfProduct ?? new List<BO.SaleInProduct>())
+            .Where(s => (double)s.Price / s.ProductAmount < productInOrder.BasicPrice) // skip sales not cheaper than the regular price
             .OrderBy(s => (double)s.Price / Math.Max(1, s.ProductAmount))
             .ToList();
 
@@ -95,9 +96,9 @@ internal class OrderImplementation : IOrder
             int packages = restAmount / sop.ProductAmount; // full bundles we can apply
             if (packages > 0)
             {
-                // sop.Price is price per product (not bundle). Apply to packages * ProductAmount units.
+                // sop.Price is the bundle price. Apply it once per full bundle.
                 int unitsCovered = packages * sop.ProductAmount;
-                double priceForUnits = unitsCovered * sop.Price; // unit price times units
+                double priceForUnits = packages * sop.Price; // bundle price times bundles
                 totalPrice += priceForUnits;
                 restAmount -= unitsCovered;
                 // add the sale instance representing used units
@@ -126,8 +127,10 @@ internal class OrderImplementation : IOrder
         if (isCustomerClubMember)
         {
             sales = _dal.Sale.ReadAll(
-                s => s.StartDate < DateTime.Now &&
+                s => s.ProductId == productInOrder.ProductId &&
+                     s.StartDate < DateTime.Now &&
                      s.EndDate > DateTime.Now &&
+                     s.RequiredAmount > 0 &&
                      s.RequiredAmount <= productInOrder.Amount)
                 .Select(s => s.ConvertDOSaleToBOSale())
                 .ToList();
@@ -135,8 +138,10 @@ internal class OrderImplementation : IOrder
         else
         {
             sales = _dal.Sale.ReadAll(
-                s => s.StartDate < DateTime.Now &&
+                s => s.ProductId == productInOrder.ProductId &&
+                     s.StartDate < DateTime.Now &&
                      s.EndDate > DateTime.Now &&
+                     s.RequiredAmount > 0 &&
                      s.RequiredAmount <= productInOrder.Amount &&
                      s.IsForClubMembersOnly == false)
                 .Select(s => s.ConvertDOSaleToBOSale())
