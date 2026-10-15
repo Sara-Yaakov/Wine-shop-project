@@ -129,6 +129,7 @@ internal class OrderImplementation : IOrder
                 s => s.ProductId == productInOrder.ProductId &&
                      s.StartDate < DateTime.Now &&
                      s.EndDate > DateTime.Now &&
+                     s.RequiredAmount > 0 &&
                      s.RequiredAmount <= productInOrder.Amount)
                 .Select(s => s.ConvertDOSaleToBOSale())
                 .ToList();
@@ -139,6 +140,7 @@ internal class OrderImplementation : IOrder
                 s => s.ProductId == productInOrder.ProductId &&
                      s.StartDate < DateTime.Now &&
                      s.EndDate > DateTime.Now &&
+                     s.RequiredAmount > 0 &&
                      s.RequiredAmount <= productInOrder.Amount &&
                      s.IsForClubMembersOnly == false)
                 .Select(s => s.ConvertDOSaleToBOSale())
