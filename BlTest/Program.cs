@@ -52,8 +52,9 @@ internal class Program
             int pid = s_bl.Product.AddProduct(prod);
             Console.WriteLine($"Created product id={pid}");
 
-            // 2. Create customer
-            var cust = new Customer { Id = 999, Name = "AutoCust", Address = "Addr", PhoneNumber = "000", IsClubMember = true };
+            // 2. Create customer (with a free id, so the test can be re-run on the XML DAL)
+            int custId = s_bl.Customer.GetAllCustomers().Select(c => c.Id).DefaultIfEmpty(0).Max() + 1;
+            var cust = new Customer { Id = custId, Name = "AutoCust", Address = "Addr", PhoneNumber = "000", IsClubMember = true };
             int cid = s_bl.Customer.AddCustomer(cust);
             Console.WriteLine($"Created customer id={cid}");
 
