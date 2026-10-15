@@ -126,7 +126,8 @@ internal class OrderImplementation : IOrder
         if (isCustomerClubMember)
         {
             sales = _dal.Sale.ReadAll(
-                s => s.StartDate < DateTime.Now &&
+                s => s.ProductId == productInOrder.ProductId &&
+                     s.StartDate < DateTime.Now &&
                      s.EndDate > DateTime.Now &&
                      s.RequiredAmount <= productInOrder.Amount)
                 .Select(s => s.ConvertDOSaleToBOSale())
@@ -135,7 +136,8 @@ internal class OrderImplementation : IOrder
         else
         {
             sales = _dal.Sale.ReadAll(
-                s => s.StartDate < DateTime.Now &&
+                s => s.ProductId == productInOrder.ProductId &&
+                     s.StartDate < DateTime.Now &&
                      s.EndDate > DateTime.Now &&
                      s.RequiredAmount <= productInOrder.Amount &&
                      s.IsForClubMembersOnly == false)
