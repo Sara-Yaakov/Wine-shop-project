@@ -19,10 +19,10 @@ Data flow: Test UI -> BL Api -> BL Implementation -> DalApi.Factory -> DAL Imple
 ## Projects in solution
 
 - `DalFacade` — contains DO types (`DO.*`) and DAL API interfaces (`DalApi.*`) and configuration factory.
-  - Key files: `DalFacade/DalApi/Factory.cs`, `DalFacade/DalApi/Config (1).cs` (DalConfig loader), `DalFacade/DO/*` (Customer, Product, Sale, Enums).
+  - Key files: `DalFacade/DalApi/Factory.cs`, `DalFacade/DalApi/Config.cs` (DalConfig loader), `DalFacade/DO/*` (Customer, Product, Sale, Enums).
 
 - `DalList` — in-memory DAL implementation used for testing.
-  - Key files: `DalList/DataSource.cs` (in-memory storage + seeding), `DalList/CustomerImplementation (1).cs`, `DalList/ProductImplementation.cs`, `DalList/SaleImplementation.cs`, `DalList/DalList.cs` (singleton instance).
+  - Key files: `DalList/DataSource.cs` (in-memory storage + seeding), `DalList/CustomerImplementation.cs`, `DalList/ProductImplementation.cs`, `DalList/SaleImplementation.cs`, `DalList/DalList.cs` (singleton instance).
 
 - `DalXML` — XML-backed DAL implementation (singleton `DalXml.DalXml.Instance`), XML-specific implementations under `DalXML` project.
 
@@ -108,14 +108,14 @@ Startup prints diagnostics from DalConfig showing attempted paths and the chosen
 
 ## Where to look for specific logic
 
-- DAL selection & config: `DalFacade/DalApi/Config (1).cs` and `DalFacade/DalApi/Factory.cs`.
+- DAL selection & config: `DalFacade/DalApi/Config.cs` and `DalFacade/DalApi/Factory.cs`.
 - In-memory DAL: `DalList/*` (DataSource, implementations).
 - XML DAL: `DalXML/*` (DalXml singleton and implementations).
 - BL interfaces: `BL/BlApi/*`.
 - BL implementations: `BL/BlImplementation/*`.
 - BO conversions & ToString helpers: `BL/BO/Tools.cs`.
 - Order logic: `BL/BlImplementation/OrderImplementation.cs`.
-- Test apps: `BlTest/Program (1).cs`, `DalTest/Program.cs`.
+- Test apps: `BlTest/Program.cs`, `DalTest/Program.cs`.
 
 ---
 
