@@ -85,6 +85,7 @@ internal class OrderImplementation : IOrder
 
         // Ensure we have applicable sales and sort by price per unit (cheapest first)
         var applicable = (productInOrder.SalesOfProduct ?? new List<BO.SaleInProduct>())
+            .Where(s => (double)s.Price / s.ProductAmount < productInOrder.BasicPrice) // skip sales not cheaper than the regular price
             .OrderBy(s => (double)s.Price / Math.Max(1, s.ProductAmount))
             .ToList();
 
